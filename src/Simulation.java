@@ -76,7 +76,7 @@ public class Simulation implements Subject{
 	{
 		Random random = new Random();
 		
-		return this.store.getCustomer(random.nextInt(12));
+		return this.store.getCustomerEligibleToRent(random.nextInt(12));
 	}
 	
 	public void DailyStats()
