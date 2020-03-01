@@ -83,7 +83,8 @@ public class Store extends AbstractStore
     {
         //go through customer's records, remove records eligible for return
         // add them to completed rentals
-
+        int carsReturned = 0;
+        ArrayList<Car> carsToReturn = new ArrayList<Car>();
         for (Iterator<RentalRecord> i = customer.getRentalRecords().iterator(); i.hasNext();)
         {
             RentalRecord element = i.next();
@@ -92,6 +93,13 @@ public class Store extends AbstractStore
                 i.remove();
                 activeRentals.remove(element);
                 completedRentals.add(element);
+
+                //populate cars to be returned
+                for(Car car : element.getCars())
+                {
+                    carsToReturn.add(car.getBase());
+                    carsReturned++;
+                }
             }
         }
     }

@@ -16,6 +16,8 @@ protected String name;
 	{
 		return licenseId;
 	}
+
+	public Car getBase() { return this; }
 	
 	public String toString()
 	{
