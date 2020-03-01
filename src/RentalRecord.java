@@ -19,8 +19,6 @@ public class RentalRecord {
 		this.totalRent = totalRent;
 	}
 	
-	
-	
 	public int getExpiryDay()
 	{
 		return expiryDay;
@@ -30,15 +28,13 @@ public class RentalRecord {
 	{
 		this.isCompleted = isCompleted;
 	}
+
 	public boolean getCompleted()
 	{
 		return isCompleted;
 	}
-	
-	public ArrayList<Car> getCars()
-	{
-		return this.car;
-	}
+
+	public ArrayList<Car> getCars() { return car; }
 	
 	public String toString()
 	{
