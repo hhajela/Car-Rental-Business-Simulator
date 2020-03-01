@@ -4,8 +4,6 @@ import java.io.FileWriter;
 
 public class Logger
 {
-    private ArrayList<RentalRecord> activeRentals;
-    private ArrayList<RentalRecord> completedRentals;
     private static String logfile = "output.txt";
     private static Logger inst;
     private Logger()
