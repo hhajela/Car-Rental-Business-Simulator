@@ -23,7 +23,7 @@ public class Store extends AbstractStore
         int totalCost = 0;
 
         ArrayList<Car> cars = new ArrayList<Car>();
-        var inventoryCars = inventory.getCars();
+        ArrayList<Car> inventoryCars = inventory.getCars();
         //for each car booked, decide upon options
         for (int i =0; i<carsBooked; i++)
         {
@@ -36,7 +36,7 @@ public class Store extends AbstractStore
             Car basecar = car;
             //add random number of car seats
             int numCarSeats = rand.nextInt(4);
-            for(int j = 0; i<numCarSeats; i++)
+            for(int j = 0; j<numCarSeats; j++)
             {
                 car = new CarSeat(car, basecar);
             }

@@ -19,6 +19,8 @@ public class RentalRecord {
 		this.totalRent = totalRent;
 	}
 	
+	
+	
 	public int getExpiryDay()
 	{
 		return expiryDay;
@@ -33,18 +35,24 @@ public class RentalRecord {
 		return isCompleted;
 	}
 	
+	public ArrayList<Car> getCars()
+	{
+		return this.car;
+	}
+	
 	public String toString()
 	{
 		String record;
 		record = this.customer.getClass().getName()+"\t"+this.customer.getClass().getName()+"\t";
 		if(this.isCompleted)
 		{
-			
-			for(int i=0;i<this.car.size();i++)
+			int i=0;
+			for(;i<this.car.size();i++)
 			{
 				record+=this.car.get(i).getDescription()+", ";
 			}
-			record+=this.totalRent;
+			record+=this.car.get(i).getDescription()+'\t';
+			record+=this.numberOfDays+'\t'+this.totalRent;
 				
 		}
 		else

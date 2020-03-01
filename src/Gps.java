@@ -5,6 +5,7 @@ public class Gps extends DecoratorOptions{
 	private Car baseCar;
 	public Gps(Car car,Car baseCar)
 	{
+		super(baseCar.getLicenseId(),baseCar.getDescription());
 		this.car=car;
 		this.baseCar =baseCar;
 		rent=70;

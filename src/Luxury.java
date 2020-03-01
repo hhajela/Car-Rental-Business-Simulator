@@ -3,8 +3,7 @@ public class Luxury extends Car {
 
 	public Luxury(String licenseId,String name)
 	{
-		this.licenseId=licenseId;
-		this.name = name;
+		super(licenseId, name);
 		this.rent = 250;
 	}
 

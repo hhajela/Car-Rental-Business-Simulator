@@ -4,8 +4,7 @@ public class Economy extends Car {
 	
 	public Economy(String licenseId,String name)
 	{
-		this.licenseId=licenseId;
-		this.name = name;
+		super(licenseId,name);
 		this.rent = 50;
 	}
 

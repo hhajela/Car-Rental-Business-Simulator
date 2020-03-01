@@ -66,7 +66,7 @@ public abstract class Customer implements MyObserver
         }
 
         //check if inventory values satisfies customer min car rental condition
-        //if we havent already the max amount of cars allowed and inventory has enough cars, set can rent to true
+        //if we haven't already the max amount of cars allowed and inventory has enough cars, set can rent to true
         if (inventory.getNumCars() >= minCarsRentedPerRental && carsRented < 4)
             canRent = true;
     }
