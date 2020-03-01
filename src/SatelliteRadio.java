@@ -10,13 +10,18 @@ public class SatelliteRadio extends DecoratorOptions{
 		rent=130;
 	}
 	
-	public int getRent()
+	public int getRent(int days)
 	{
-		return rent+car.getRent();
+		return rent+car.getRent(days);
 	}
 	
 	public Car getBase()
 	{
 		return baseCar;
+	}
+	
+	public String getDescription()
+	{
+		return this.car.getDescription()+" "+this.getClass().getName();
 	}
 }

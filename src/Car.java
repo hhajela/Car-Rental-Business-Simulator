@@ -8,5 +8,16 @@ protected String name;
 	{
 		
 	}
-	public abstract int getRent();
+	public abstract int getRent(int Days);
+	public abstract String getDescription();
+	
+	public String getLicenseId()
+	{
+		return licenseId;
+	}
+	
+	public String toString()
+	{
+		return this.name+" "+this.licenseId;
+	}
 }

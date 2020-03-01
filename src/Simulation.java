@@ -55,7 +55,7 @@ public class Simulation implements Subject{
 			Customer incomingCustomer;
 			while((incomingCustomer = getRandomCustomer())!=null)
 			{
-				this.store.processBooking(incomingCustomer);
+				this.store.processBooking(incomingCustomer, this.day);
 			}
 			
 			changeDay();
@@ -76,14 +76,14 @@ public class Simulation implements Subject{
 	{
 		Random random = new Random();
 		
-		return this.store.getCustomer(random.nextInt(12));
+		return this.store.getCustomerEligibleToRent(random.nextInt(12));
 	}
 	
 	public void DailyStats()
 	{
 		try
 		{
-			this.log.print("");
+			
 			this.log.print("Day "+this.day);
 			this.log.print("Total Completed Rentals :"+this.store.getCompletedRentals().size());
 			this.log.print(this.store.getCompletedRentals());

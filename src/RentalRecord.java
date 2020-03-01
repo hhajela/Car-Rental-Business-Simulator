@@ -6,13 +6,17 @@ public class RentalRecord {
 	private Customer customer;
 	private int expiryDay;
 	private boolean isCompleted;
+	private int numberOfDays;
+	private int totalRent;
 	
-	public RentalRecord(ArrayList<Car> car,Customer customer, int expiryDay)
+	public RentalRecord(ArrayList<Car> car,Customer customer, int startDay,int numOfDays,int totalRent)
 	{
 		this.car = car;
 		this.customer = customer;
-		this.expiryDay=expiryDay;
+		this.expiryDay=startDay+numOfDays;
+		this.numberOfDays = numOfDays;
 		this.isCompleted = false;
+		this.totalRent = totalRent;
 	}
 	
 	public int getExpiryDay()
@@ -32,5 +36,26 @@ public class RentalRecord {
 	public String toString()
 	{
 		String record;
+		record = this.customer.getClass().getName()+"\t"+this.customer.getClass().getName()+"\t";
+		if(this.isCompleted)
+		{
+			
+			for(int i=0;i<this.car.size();i++)
+			{
+				record+=this.car.get(i).getDescription()+", ";
+			}
+			record+=this.totalRent;
+				
+		}
+		else
+		{
+			int i=0;
+			for(;i<this.car.size()-1;i++)
+			{
+				record+=this.car.get(i).getDescription()+' '+this.car.get(i).getLicenseId()+", ";
+			} 
+			record+=this.car.get(i).getDescription()+' '+this.car.get(i).getLicenseId();
+		}
+		return record;
 	}
 }

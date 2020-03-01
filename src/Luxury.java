@@ -9,7 +9,12 @@ public class Luxury extends Car {
 	}
 
 	@Override
-	public int getRent() {
-		return rent;
+	public int getRent(int days) {
+		return rent*days;
+	}
+	
+	public String getDescription()
+	{
+		return this.name;
 	}
 }
