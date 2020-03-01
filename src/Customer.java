@@ -8,6 +8,8 @@ public abstract class Customer implements MyObserver
     protected HashMap<Integer,RentalRecord> rentalRecords;
     protected int minCarsRentedPerRental;
     protected int maxCarsRentedPerRental;
+    protected int minRentalDuration;
+    protected int maxRentalDuration;
     protected int carsRented;
     protected String name;
     protected Inventory inventory;
@@ -36,6 +38,10 @@ public abstract class Customer implements MyObserver
     public int getMinCarsRentedPerRental() { return minCarsRentedPerRental; }
 
     public int getMaxCarsRentedPerRental() { return maxCarsRentedPerRental; }
+
+    public int getMinRentalDuration() { return minRentalDuration; }
+
+    public int getMaxRentalDuration() { return maxRentalDuration; }
 
     public int getCarsRented() { return carsRented; }
 

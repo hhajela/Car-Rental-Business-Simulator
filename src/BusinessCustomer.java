@@ -7,5 +7,8 @@ public class BusinessCustomer extends Customer
         super(customerName, inventory, simulation);
         minCarsRentedPerRental = 3;
         maxCarsRentedPerRental = 3;
+
+        minRentalDuration = 7;
+        maxRentalDuration = 7;
     }
 }

@@ -5,5 +5,8 @@ public class RegularCustomer extends Customer
         super(name, inventory, simulation);
         minCarsRentedPerRental = 1;
         maxCarsRentedPerRental = 3;
+
+        minRentalDuration = 3;
+        maxRentalDuration = 5;
     }
 }
