@@ -1,40 +1,29 @@
+import java.io.IOException;
 import java.util.*;
+import java.io.FileWriter;
 
 public class Logger
 {
     private ArrayList<RentalRecord> activeRentals;
     private ArrayList<RentalRecord> completedRentals;
+    private static String logfile = "output.txt";
     private static Logger inst;
     private Logger()
     {}
 
-    public void printActiveRentals(ArrayList<RentalRecord> records)
+    public void print(String line) throws IOException
     {
-        for(RentalRecord r : records)
-        {
-
-        }
+        FileWriter fw = new FileWriter(logfile);
+        fw.write(line);
+        fw.close();
     }
 
-    public void printCompletedRentals(ArrayList<RentalRecord> records)
+    public void print(ArrayList<?> values) throws IOException
     {
-        for(RentalRecord r : records)
-        {
-
+        for (Object o : values) {
+            print(o.toString());
         }
     }
-
-    public void printCurrentInventory(ArrayList<Car> cars)
-    {
-        System.out.println("Inventory Status:-");
-        for(Car car : cars)
-        {
-
-        }
-        System.out.println("Total cars in inventory:  " + cars.size());
-    }
-
-    public void printDailyEarnings(int earnings, int day) { System.out.println("Total daily earnings on day " + day + " are $" + earnings);}
 
     public static synchronized Logger getInstance()
     {

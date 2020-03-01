@@ -1,7 +1,9 @@
 public class RegularCustomer extends Customer
 {
-    public RegularCustomer(String name)
+    public RegularCustomer(String name, Inventory inventory, Simulation simulation)
     {
-        super(name);
+        super(name, inventory, simulation);
+        minCarsRentedPerRental = 1;
+        maxCarsRentedPerRental = 3;
     }
 }

@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.util.*;
 
 public class Simulation implements Subject{
@@ -6,7 +7,7 @@ public class Simulation implements Subject{
 	private AbstractStore store;
 	CustomerFactory cmFactory;
 	CarFactory crFactory;
-	private ArrayList<Customer> customer;
+	private ArrayList<Customer> customers;
 	private ArrayList<Car> car;
 	private Logger log ;
 	
@@ -16,31 +17,27 @@ public class Simulation implements Subject{
 		this.cmFactory = cmf;
 		this.crFactory = crf;
 		this.store = store;
-		this.customer = new ArrayList<Customer>();
+		this.customers = new ArrayList<Customer>();
 		this.log = Logger.getInstance();
 		
 		
 	}
 	
-	public void initialize(ArrayList<String> customer,ArrayList<String> carName, ArrayList<String> licName)
+	public void initialize(ArrayList<String> customers,ArrayList<String> carName, ArrayList<String> licName)
 	{
-		for(int i=0;i<customer.size();i++)
+		for(int i=0;i<customers.size();i++)
 			{
-			customer.add(this.cmFactory.createCustomer(customer.get(i),this.store.getInventory(),this));
-			this.store.addCustomer(customer.get(i));
+			this.customers.add(this.cmFactory.createCustomer(customers.get(i),this.store.getInventory(),this));
+			this.store.addCustomer(customers.get(i));
 			}
 		
 		for(int i=0;i<carName.size();i++)
-			this.store.getInventory().addCar(this.crFactory.createCar(licName.get(i),licName.get(i)));
-		
-		
-		
-		
+			this.store.getInventory().addCar(this.crFactory.createCar(licName.get(i),carName.get(i)));
 		
 	}
 	public void changeDay()
 	{
-		this.day=this.day+1;
+		this.day++;
 	}
 	
 	public int getDay()
@@ -59,7 +56,6 @@ public class Simulation implements Subject{
 			while((incomingCustomer = getRandomCustomer())!=null)
 			{
 				this.store.processBooking(incomingCustomer);
-				
 			}
 			
 			changeDay();
@@ -68,10 +64,10 @@ public class Simulation implements Subject{
 	
 	public void checkReturns()
 	{
-		for(int i=0;i<customer.size();i++)
+		for(int i=0;i<customers.size();i++)
 		{
-			if(customer.get(i).getCanReturn())
-				this.store.processReturn(customer.get(i));
+			if(customers.get(i).getCanReturn())
+				this.store.processReturn(customers.get(i));
 		}
 		return;
 	}
@@ -85,16 +81,21 @@ public class Simulation implements Subject{
 	
 	public void DailyStats()
 	{
-		this.log.print()
-		this.log.print("Day "+this.day);
-		this.log.print("Total Completed Rentals :"+this.store.getCompletedRental().size());
-		this.log.print(this.store.getCompletedRental());
-		this.log.print("Total Active Rentals :"+this.store.getActiveRental().size());
-		this.log.print(this.store.getActiveRental());
-		this.log.print(this.log.print("Total Active Rentals :"+this.store.getInventory().size()));
-		this.log.print(this.log.print(this.store.getInventory());
-		this.log.print("Today's Earnings:"+this.store.getDailyEarnings());
-		
-		
+		try
+		{
+			this.log.print("");
+			this.log.print("Day "+this.day);
+			this.log.print("Total Completed Rentals :"+this.store.getCompletedRentals().size());
+			this.log.print(this.store.getCompletedRentals());
+			this.log.print("Total Active Rentals :"+this.store.getActiveRentals().size());
+			this.log.print(this.store.getActiveRentals());
+			this.log.print("Total Cars in Inventory :"+this.store.getInventory().getNumCars());
+			this.log.print(this.store.getInventory().getCars());
+			this.log.print("Today's Earnings:"+this.store.getDailyEarnings());
+		}
+		catch (IOException e)
+		{
+			System.out.println("Failed to write daily stats to file, error " + e.toString());
+		}
 	}
 }

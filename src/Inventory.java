@@ -17,4 +17,6 @@ public class Inventory implements  Subject
     }
 
     public int getNumCars() { return cars.size(); }
+
+    public ArrayList<Car> getCars() { return cars; }
 }
