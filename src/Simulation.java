@@ -50,6 +50,7 @@ public class Simulation implements Subject{
 		while(this.day<=35)
 		{
 			notifyObservers();
+			logDailyStats();
 			checkReturns();
 			
 			Customer incomingCustomer;
@@ -79,7 +80,7 @@ public class Simulation implements Subject{
 		return this.store.getCustomerEligibleToRent(random.nextInt(12));
 	}
 	
-	public void DailyStats()
+	public void logDailyStats()
 	{
 		try
 		{
