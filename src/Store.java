@@ -71,9 +71,9 @@ public class Store extends AbstractStore
         totalEarnings += totalCost;
 
         //update rental count based on customer type
-        if (customer.type.equals("Business"))
+        if (customer.getType().equals("Business"))
             businessRentals++;
-        else if (customer.type.equals("Casual"))
+        else if (customer.getType().equals("Casual"))
             casualRentals++;
         else
             regularRentals++;

@@ -52,6 +52,8 @@ public abstract class Customer implements MyObserver
 
     public HashSet<RentalRecord> getRentalRecords() { return rentalRecords; }
 
+    public String getType() { return this.type; }
+
     //called when notified by subjects
     public void update()
     {
