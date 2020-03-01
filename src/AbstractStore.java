@@ -12,16 +12,9 @@ abstract public class AbstractStore
     public void addCustomer(Customer c) { customers.add(c); }
     public void removeCustomer(Customer c) { customers.remove(c);}
 
-    public void processBooking(Customer customer)
-    {
-        //pick random value for number of cars depending on customer's maximum
-        int numberOfCars = 1;
-    }
+    public abstract void processBooking(Customer customer, int day);
 
-    public void processReturn(Customer customer)
-    {
-
-    }
+    public abstract void processReturn(Customer customer);
 
     public Inventory getInventory() { return inventory; }
 
@@ -30,5 +23,7 @@ abstract public class AbstractStore
     public ArrayList<RentalRecord> getActiveRentals() { return new ArrayList<RentalRecord>(activeRentals.values()); }
 
     public int getDailyEarnings() { return dailyEarnings; }
+
+    public abstract Customer getCustomerEligibleToReturn(int customerIndex);
 
 }
