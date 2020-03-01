@@ -4,27 +4,33 @@ public class RentalRecord {
 
 	private ArrayList<Car> car;
 	private Customer customer;
-	private int expiryDays;
+	private int expiryDay;
 	private boolean isCompleted;
 	
-	public RentalRecord(ArrayList<Car> car,Customer customer, int expiryDays)
+	public RentalRecord(ArrayList<Car> car,Customer customer, int expiryDay)
 	{
 		this.car = car;
 		this.customer = customer;
-		this.expiryDays=expiryDays;
+		this.expiryDay=expiryDay;
+		this.isCompleted = false;
 	}
 	
-	public int getExpiryDays()
+	public int getExpiryDay()
 	{
-		return expiryDays;
+		return expiryDay;
 	}
 	
-	public void markCompleted(boolean isCompleted)
+	public void setCompleted(boolean isCompleted)
 	{
 		this.isCompleted = isCompleted;
 	}
 	public boolean getCompleted()
 	{
 		return isCompleted;
+	}
+	
+	public String toString()
+	{
+		String record;
 	}
 }
