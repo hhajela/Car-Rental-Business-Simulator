@@ -1,8 +1,8 @@
 
 public abstract class Car {
-int rent;
-String licenseId;
-String name;
+protected int rent;
+protected String licenseId;
+protected String name;
 
 	public Car()
 	{
