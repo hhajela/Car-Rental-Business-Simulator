@@ -1,8 +1,8 @@
 
 public class SatelliteRadio extends DecoratorOptions{
 
-	Car car; 
-	Car baseCar;
+	private Car car; 
+	private Car baseCar;
 	public SatelliteRadio(Car car,Car baseCar)
 	{
 		this.car=car;
@@ -14,4 +14,9 @@ public class SatelliteRadio extends DecoratorOptions{
 	{
 		return rent+car.getRent();
 	}
+	
+	public Car getBase()
+	{
+		return baseCar;
 	}
+}

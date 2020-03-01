@@ -2,10 +2,10 @@ import java.util.ArrayList;
 
 public class RentalRecord {
 
-	ArrayList<Car> car;
-	Customer customer;
-	int expiryDays;
-	boolean isCompleted;
+	private ArrayList<Car> car;
+	private Customer customer;
+	private int expiryDays;
+	private boolean isCompleted;
 	
 	public RentalRecord(ArrayList<Car> car,Customer customer, int expiryDays)
 	{
@@ -14,8 +14,17 @@ public class RentalRecord {
 		this.expiryDays=expiryDays;
 	}
 	
-	public int GetExpiryDays()
+	public int getExpiryDays()
 	{
 		return expiryDays;
+	}
+	
+	public void markCompleted(boolean isCompleted)
+	{
+		this.isCompleted = isCompleted;
+	}
+	public boolean getCompleted()
+	{
+		return isCompleted;
 	}
 }

@@ -14,4 +14,8 @@ public class CarSeat extends DecoratorOptions{
 		return rent+car.getRent();
 	}
 	
+	public Car GetBase()
+	{
+		return baseCar;
+	}
 }

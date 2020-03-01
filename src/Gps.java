@@ -1,8 +1,8 @@
 
 public class Gps extends DecoratorOptions{
 
-	Car car; 
-	Car baseCar;
+	private Car car; 
+	private Car baseCar;
 	public Gps(Car car,Car baseCar)
 	{
 		this.car=car;
@@ -13,5 +13,10 @@ public class Gps extends DecoratorOptions{
 	public int getRent()
 	{
 		return rent+car.getRent();
+	}
+	
+	public Car getBase()
+	{
+		return baseCar;
 	}
 }
