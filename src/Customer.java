@@ -3,14 +3,14 @@ import java.util.*;
 
 public abstract class Customer implements MyObserver
 {
-    private boolean canRent;
-    private boolean canReturn;
-    private HashMap<Integer,RentalRecord> rentalRecords;
-    private int minCarsRentedPerRental;
-    private int carsRented;
-    private String name;
-    private Inventory inventory;
-    private Simulation simulation;
+    protected boolean canRent;
+    protected boolean canReturn;
+    protected HashMap<Integer,RentalRecord> rentalRecords;
+    protected int minCarsRentedPerRental;
+    protected int carsRented;
+    protected String name;
+    protected Inventory inventory;
+    protected Simulation simulation;
 
     public Customer(String customerName)
     {
