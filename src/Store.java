@@ -11,7 +11,7 @@ public class Store extends AbstractStore
     {
         //pick random value for number of cars depending on customer type
         int minCars = customer.getMinCarsRentedPerRental();
-        int maxCars = customer.getMaxCarsRentedPerRental();
+        int maxCars = Math.min(customer.getMaxCarsRentedPerRental(),inventory.getNumCars());
         Random rand = new Random();
         int carsBooked = rand.nextInt(maxCars - minCars + 1) + minCars;
 
