@@ -8,6 +8,9 @@ abstract public class AbstractStore
     protected ArrayList<Customer> customers;
     protected HashSet<RentalRecord> completedRentals;
     protected HashSet<RentalRecord> activeRentals;
+    protected int casualRentals;
+    protected int regularRentals;
+    protected int businessRentals;
 
     public AbstractStore()
     {

@@ -14,6 +14,7 @@ public abstract class Customer implements MyObserver
     protected String name;
     protected Inventory inventory;
     protected Simulation simulation;
+    protected String type;
 
     public Customer(String customerName, Inventory inventory, Simulation simulation)
     {
