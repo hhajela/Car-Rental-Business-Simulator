@@ -3,8 +3,7 @@ public class Standard extends Car {
 
 	public Standard(String licenseId,String name)
 	{
-		this.licenseId=licenseId;
-		this.name = name;
+		super(licenseId, name);
 		this.rent = 60;
 	}
 	
