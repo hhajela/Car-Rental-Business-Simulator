@@ -35,7 +35,7 @@ public class Store extends AbstractStore
 
             Car basecar = car;
             //add random number of car seats
-            int numCarSeats = rand.nextInt(4);
+            int numCarSeats = rand.nextInt(5);
             for(int j = 0; j<numCarSeats; j++)
             {
                 car = new CarSeat(car, basecar);
