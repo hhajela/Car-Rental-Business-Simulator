@@ -10,9 +10,9 @@ public class Gps extends DecoratorOptions{
 		rent=70;
 	}
 	
-	public int getRent()
+	public int getRent(int days)
 	{
-		return rent+car.getRent();
+		return rent+car.getRent(days);
 	}
 	
 	public Car getBase()

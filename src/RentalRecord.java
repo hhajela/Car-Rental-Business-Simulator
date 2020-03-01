@@ -49,7 +49,7 @@ public class RentalRecord {
 		}
 		else
 		{
-			int i=0
+			int i=0;
 			for(;i<this.car.size()-1;i++)
 			{
 				record+=this.car.get(i).getDescription()+' '+this.car.get(i).getLicenseId()+", ";
