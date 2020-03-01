@@ -6,4 +6,4 @@ public DecoratorOptions(String licenseId, String name)
 {
 super(licenseId,name);	
 }
-
+}
