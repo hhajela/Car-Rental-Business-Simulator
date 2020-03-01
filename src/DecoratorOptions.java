@@ -1,4 +1,7 @@
 
-public class DecoratorOptions {
+public abstract class DecoratorOptions extends Car{
+
+	
+
 
 }
