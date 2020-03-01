@@ -41,10 +41,10 @@ public class Store extends AbstractStore
                 car = new CarSeat(car, basecar);
             }
             //add radio and gps
-            if (rand.nextInt(1)== 1)
+            if (rand.nextInt(2)== 1)
                 car = new Gps(car,basecar);
 
-            if (rand.nextInt(1)== 1)
+            if (rand.nextInt(2)== 1)
                 car = new SatelliteRadio(car,basecar);
 
             //add to list
