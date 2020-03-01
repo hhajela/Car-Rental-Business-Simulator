@@ -50,7 +50,7 @@ public class Simulation implements Subject{
 		while(this.day<=35)
 		{
 			notifyObservers();
-			logDailyStats();
+			store.setDailyEarnings(0);
 			checkReturns();
 			
 			Customer incomingCustomer;
@@ -58,7 +58,8 @@ public class Simulation implements Subject{
 			{
 				this.store.processBooking(incomingCustomer, this.day);
 			}
-			
+
+			logDailyStats();
 			changeDay();
 		}
 	}
