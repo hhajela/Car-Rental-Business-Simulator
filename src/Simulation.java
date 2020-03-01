@@ -28,7 +28,7 @@ public class Simulation implements Subject{
 		for(int i=0;i<customers.size();i++)
 			{
 			this.customers.add(this.cmFactory.createCustomer(customers.get(i),this.store.getInventory(),this));
-			this.store.addCustomer(customers.get(i));
+			this.store.addCustomer(this.customers.get(i));
 			}
 		
 		for(int i=0;i<carName.size();i++)
