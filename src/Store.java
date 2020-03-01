@@ -60,6 +60,23 @@ public class Store extends AbstractStore
         //add record to store and customer's list
         activeRentals.add(record);
         customer.rentalRecords.add(record);
+
+        //update customer total booked cars, disallow booking more if limit reached
+        customer.setCarsRented(customer.getCarsRented()+carsBooked);
+        if (customer.getCarsRented() > 3)
+            customer.setCanRent(false);
+
+        //add total cost to earnings
+        dailyEarnings += totalCost;
+        totalEarnings += totalCost;
+
+        //update rental count based on customer type
+        if (customer.type.equals("Business"))
+            businessRentals++;
+        else if (customer.type.equals("Casual"))
+            casualRentals++;
+        else
+            regularRentals++;
     }
 
     public void processReturn(Customer customer)

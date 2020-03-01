@@ -24,6 +24,7 @@ abstract public class AbstractStore
 
     public abstract void processReturn(Customer customer);
 
+    //getters and setters
     public Inventory getInventory() { return inventory; }
 
     public ArrayList<RentalRecord> getCompletedRentals() { return new ArrayList<RentalRecord>(completedRentals); }
@@ -31,6 +32,10 @@ abstract public class AbstractStore
     public ArrayList<RentalRecord> getActiveRentals() { return new ArrayList<RentalRecord>(activeRentals); }
 
     public int getDailyEarnings() { return dailyEarnings; }
+
+    public void setDailyEarnings(int earnings) { dailyEarnings = earnings; }
+
+    public int getTotalEarnings() { return totalEarnings; }
 
     public abstract Customer getCustomerEligibleToRent(int customerIndex);
 
