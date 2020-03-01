@@ -4,6 +4,7 @@ public class CarSeat extends DecoratorOptions{
 	Car baseCar;
 	public CarSeat(Car car,Car baseCar )
 	{
+		super(baseCar.getLicenseId(),baseCar.getDescription());
 		this.car=car;
 		this.baseCar = baseCar;
 		this.rent=90;

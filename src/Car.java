@@ -4,9 +4,10 @@ protected int rent;
 protected String licenseId;
 protected String name;
 
-	public Car()
+	public Car(String licenseId, String name)
 	{
-		
+		this.name=name;
+		this.licenseId=licenseId;
 	}
 	public abstract int getRent(int Days);
 	public abstract String getDescription();

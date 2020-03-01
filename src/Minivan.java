@@ -3,8 +3,7 @@ public class Minivan extends Car {
 
 	public Minivan(String licenseId,String name)
 	{
-		this.licenseId=licenseId;
-		this.name = name;
+		super(licenseId, name);
 		this.rent = 120;
 	}
 	

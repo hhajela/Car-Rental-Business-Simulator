@@ -5,6 +5,7 @@ public class SatelliteRadio extends DecoratorOptions{
 	private Car baseCar;
 	public SatelliteRadio(Car car,Car baseCar)
 	{
+		super(baseCar.getLicenseId(),baseCar.getDescription());
 		this.car=car;
 		this.baseCar=baseCar;
 		rent=130;
