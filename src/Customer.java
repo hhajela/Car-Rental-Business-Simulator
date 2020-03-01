@@ -22,6 +22,7 @@ public abstract class Customer implements MyObserver
         name = customerName;
     }
 
+    //getters and setters
     public void setCanRent(boolean value) { canRent = value; }
 
     public boolean getCanRent() { return canRent; }
@@ -29,6 +30,16 @@ public abstract class Customer implements MyObserver
     public void setCanReturn(boolean canReturn) { this.canReturn = canReturn; }
 
     public boolean getCanReturn() { return canReturn; }
+
+    public String getName() { return name; }
+
+    public int getMinCarsRentedPerRental() { return minCarsRentedPerRental; }
+
+    public int getMaxCarsRentedPerRental() { return maxCarsRentedPerRental; }
+
+    public int getCarsRented() { return carsRented; }
+
+    public void setCarsRented(int carsRented) { this.carsRented = carsRented; }
 
     //called when notified by subjects
     public void update()
@@ -45,8 +56,9 @@ public abstract class Customer implements MyObserver
             }
         }
 
-        //check if inventory values satisfies customer min car rental condition, accordingly set canRent
-        if (inventory.getNumCars() >= minCarsRentedPerRental)
+        //check if inventory values satisfies customer min car rental condition
+        //if we havent already the max amount of cars allowed and inventory has enough cars, set can rent to true
+        if (inventory.getNumCars() >= minCarsRentedPerRental && carsRented < 4)
             canRent = true;
     }
 }
