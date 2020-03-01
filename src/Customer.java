@@ -19,6 +19,7 @@ public abstract class Customer implements MyObserver
     {
         this.simulation = simulation;
         this.inventory = inventory;
+        rentalRecords = new HashSet<RentalRecord>();
         simulation.registerObserver(this);
         inventory.registerObserver(this);
         name = customerName;

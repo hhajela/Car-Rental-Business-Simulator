@@ -9,6 +9,14 @@ abstract public class AbstractStore
     protected HashSet<RentalRecord> completedRentals;
     protected HashSet<RentalRecord> activeRentals;
 
+    public AbstractStore()
+    {
+        completedRentals = new HashSet<RentalRecord>();
+        activeRentals = new HashSet<RentalRecord>();
+        customers = new ArrayList<Customer>();
+        inventory = new Inventory();
+    }
+
     public void addCustomer(Customer c) { customers.add(c); }
     public void removeCustomer(Customer c) { customers.remove(c);}
 

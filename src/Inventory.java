@@ -4,6 +4,11 @@ public class Inventory implements  Subject
 {
     private ArrayList<Car> cars;
 
+    public Inventory()
+    {
+        cars = new ArrayList<Car>();
+    }
+
     public void addCar(Car car)
     {
         cars.add(car);

@@ -2,6 +2,11 @@ import java.util.*;
 
 public class Store extends AbstractStore
 {
+    public Store()
+    {
+        super();
+    }
+
     public void processBooking(Customer customer, int day)
     {
         //pick random value for number of cars depending on customer type
