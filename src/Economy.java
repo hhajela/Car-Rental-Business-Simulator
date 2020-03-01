@@ -14,4 +14,8 @@ public class Economy extends Car {
 		
 		return this.rent;
 	}
+	public String getDescription()
+	{
+		return this.name;
+	}
 }

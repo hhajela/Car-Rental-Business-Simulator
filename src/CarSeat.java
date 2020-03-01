@@ -18,4 +18,9 @@ public class CarSeat extends DecoratorOptions{
 	{
 		return baseCar;
 	}
+	
+	public String getDescription()
+	{
+		return this.car.getDescription()+" "+this.getClass().getName();
+	}
 }

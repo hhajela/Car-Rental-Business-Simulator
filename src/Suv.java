@@ -13,4 +13,10 @@ public class Suv extends Car {
 	public int getRent() {
 		return this.rent;
 	}
+	
+	public String getDescription()
+	{
+		return this.name;
+	
+	}
 }
