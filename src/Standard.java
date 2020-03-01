@@ -12,4 +12,10 @@ public class Standard extends Car {
 	public int getRent() {
 		return rent;
 	}
+	
+	public String getDescription()
+	{
+		return this.name;
+	
+	}
 }

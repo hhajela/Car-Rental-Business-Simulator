@@ -12,4 +12,9 @@ public class Luxury extends Car {
 	public int getRent() {
 		return rent;
 	}
+	
+	public String getDescription()
+	{
+		return this.name;
+	}
 }

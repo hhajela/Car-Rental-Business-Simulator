@@ -55,7 +55,7 @@ public class Simulation implements Subject{
 			Customer incomingCustomer;
 			while((incomingCustomer = getRandomCustomer())!=null)
 			{
-				this.store.processBooking(incomingCustomer);
+				this.store.processBooking(incomingCustomer, this.day);
 			}
 			
 			changeDay();
@@ -83,7 +83,7 @@ public class Simulation implements Subject{
 	{
 		try
 		{
-			this.log.print("");
+			
 			this.log.print("Day "+this.day);
 			this.log.print("Total Completed Rentals :"+this.store.getCompletedRentals().size());
 			this.log.print(this.store.getCompletedRentals());
