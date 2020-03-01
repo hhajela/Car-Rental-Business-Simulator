@@ -11,8 +11,8 @@ public class Logger
 
     public void print(String line) throws IOException
     {
-        FileWriter fw = new FileWriter(logfile);
-        fw.write(line);
+        FileWriter fw = new FileWriter(logfile, true);
+        fw.write(line+"\n");
         fw.close();
     }
 

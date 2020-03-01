@@ -39,11 +39,11 @@ public class RentalRecord {
 	public String toString()
 	{
 		String record;
-		record = this.customer.getClass().getName()+"\t"+this.customer.getClass().getName()+"\t";
+		record = this.customer.getName()+"\t"+this.customer.getType()+"\t";
 		if(this.isCompleted)
 		{
 			int i=0;
-			for(;i<this.car.size();i++)
+			for(;i<this.car.size()-1;i++)
 			{
 				record+=this.car.get(i).getDescription()+", ";
 			}
