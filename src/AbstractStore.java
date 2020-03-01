@@ -24,6 +24,6 @@ abstract public class AbstractStore
 
     public int getDailyEarnings() { return dailyEarnings; }
 
-    public abstract Customer getCustomerEligibleToReturn(int customerIndex);
+    public abstract Customer getCustomerEligibleToRent(int customerIndex);
 
 }
