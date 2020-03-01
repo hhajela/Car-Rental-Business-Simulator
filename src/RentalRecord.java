@@ -39,7 +39,7 @@ public class RentalRecord {
 	public String toString()
 	{
 		String record;
-		record = this.customer.getName()+"\t"+this.customer.getType()+"\t";
+		record = "Customer Name : " + this.customer.getName()+"\tCustomer Type : "+this.customer.getType()+"\tCars Rented : ";
 		if(this.isCompleted)
 		{
 			int i=0;
@@ -47,8 +47,8 @@ public class RentalRecord {
 			{
 				record+=this.car.get(i).getDescription()+", ";
 			}
-			record+=this.car.get(i).getDescription()+'\t';
-			record+=this.numberOfDays+'\t'+this.totalRent;
+			record+=this.car.get(i).getDescription()+ "\tRental Duration : ";
+			record+=this.numberOfDays+" days\tTotal Rent : $"+this.totalRent;
 				
 		}
 		else
@@ -56,7 +56,7 @@ public class RentalRecord {
 			int i=0;
 			for(;i<this.car.size()-1;i++)
 			{
-				record+=this.car.get(i).getDescription()+' '+this.car.get(i).getLicenseId()+", ";
+				record+=this.car.get(i).getDescription()+" License ID "+this.car.get(i).getLicenseId()+", ";
 			} 
 			record+=this.car.get(i).getDescription()+' '+this.car.get(i).getLicenseId();
 		}

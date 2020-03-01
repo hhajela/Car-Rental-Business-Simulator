@@ -86,14 +86,15 @@ public class Simulation implements Subject{
 		try
 		{
 			
-			this.log.print("Day "+this.day);
-			this.log.print("Total Completed Rentals :"+this.store.getCompletedRentals().size());
+			this.log.print("\nDay \n"+this.day);
+			this.log.print("Total Completed Rentals : "+this.store.getCompletedRentals().size() + "\n");
 			this.log.print(this.store.getCompletedRentals());
-			this.log.print("Total Active Rentals :"+this.store.getActiveRentals().size());
+			this.log.print("\nTotal Active Rentals : "+this.store.getActiveRentals().size() + "\n");
 			this.log.print(this.store.getActiveRentals());
-			this.log.print("Total Cars in Inventory :"+this.store.getInventory().getNumCars());
+			this.log.print("\nTotal Cars in Inventory : "+this.store.getInventory().getNumCars() + "\n");
 			this.log.print(this.store.getInventory().getCars());
-			this.log.print("Today's Earnings:"+this.store.getDailyEarnings());
+			this.log.print("\nToday's Earnings : "+this.store.getDailyEarnings());
+			this.log.print("--------------------------------------------------------------------------------------------");
 		}
 		catch (IOException e)
 		{
