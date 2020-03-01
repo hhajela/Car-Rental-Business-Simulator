@@ -102,6 +102,19 @@ public class Store extends AbstractStore
                 }
             }
         }
+        //change cars added back, allow customer to book cars again if eligible
+        customer.setCarsRented(customer.getCarsRented()-carsReturned);
+        if (customer.getCarsRented() < 4)
+            customer.setCanRent(true);
+
+        //add returned cars to inventory
+        for(Car car : carsToReturn)
+        {
+            inventory.addCar(car);
+        }
+
+        //customer returned all due cars, set can return to false
+        customer.canReturn = false;
     }
 
     public Customer getCustomerEligibleToRent(int customerIndex)

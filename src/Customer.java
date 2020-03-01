@@ -24,6 +24,7 @@ public abstract class Customer implements MyObserver
         simulation.registerObserver(this);
         inventory.registerObserver(this);
         name = customerName;
+        canReturn = false;
     }
 
     //getters and setters
@@ -70,5 +71,7 @@ public abstract class Customer implements MyObserver
         //if we haven't already the max amount of cars allowed and inventory has enough cars, set can rent to true
         if (inventory.getNumCars() >= minCarsRentedPerRental && carsRented < 4)
             canRent = true;
+        else
+            canRent = false;
     }
 }
