@@ -5,7 +5,7 @@ public abstract class Customer implements MyObserver
 {
     protected boolean canRent;
     protected boolean canReturn;
-    protected HashMap<Integer,RentalRecord> rentalRecords;
+    protected HashSet<RentalRecord> rentalRecords;
     protected int minCarsRentedPerRental;
     protected int maxCarsRentedPerRental;
     protected int minRentalDuration;
@@ -47,6 +47,8 @@ public abstract class Customer implements MyObserver
 
     public void setCarsRented(int carsRented) { this.carsRented = carsRented; }
 
+    public HashSet<RentalRecord> getRentalRecords() { return rentalRecords; }
+
     //called when notified by subjects
     public void update()
     {
@@ -54,7 +56,7 @@ public abstract class Customer implements MyObserver
         //if so invalidate it, set return to true
         int currentDay = simulation.getDay();
 
-        for (RentalRecord record : rentalRecords.values())
+        for (RentalRecord record : rentalRecords)
         {
             if (record.getExpiryDay() == currentDay) {
                 record.setCompleted(true);

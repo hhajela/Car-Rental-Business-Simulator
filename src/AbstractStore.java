@@ -6,8 +6,8 @@ abstract public class AbstractStore
     protected int totalEarnings;
     protected int dailyEarnings;
     protected ArrayList<Customer> customers;
-    protected HashMap<Integer, RentalRecord> completedRentals;
-    protected HashMap<Integer, RentalRecord> activeRentals;
+    protected HashSet<RentalRecord> completedRentals;
+    protected HashSet<RentalRecord> activeRentals;
 
     public void addCustomer(Customer c) { customers.add(c); }
     public void removeCustomer(Customer c) { customers.remove(c);}
@@ -18,9 +18,9 @@ abstract public class AbstractStore
 
     public Inventory getInventory() { return inventory; }
 
-    public ArrayList<RentalRecord> getCompletedRentals() { return new ArrayList<RentalRecord>(completedRentals.values()); }
+    public ArrayList<RentalRecord> getCompletedRentals() { return new ArrayList<RentalRecord>(completedRentals); }
 
-    public ArrayList<RentalRecord> getActiveRentals() { return new ArrayList<RentalRecord>(activeRentals.values()); }
+    public ArrayList<RentalRecord> getActiveRentals() { return new ArrayList<RentalRecord>(activeRentals); }
 
     public int getDailyEarnings() { return dailyEarnings; }
 
