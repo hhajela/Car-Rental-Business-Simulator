@@ -9,9 +9,9 @@ public class CarSeat extends DecoratorOptions{
 		this.rent=90;
 	}
 	
-	public int getRent()
+	public int getRent(int Days)
 	{
-		return rent+car.getRent();
+		return rent+car.getRent(Days);
 	}
 	
 	public Car GetBase()

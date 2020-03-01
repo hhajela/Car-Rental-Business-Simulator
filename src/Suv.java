@@ -10,8 +10,8 @@ public class Suv extends Car {
 	
 	
 	@Override
-	public int getRent() {
-		return this.rent;
+	public int getRent(int days) {
+		return this.rent*days;
 	}
 	
 	public String getDescription()

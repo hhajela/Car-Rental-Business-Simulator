@@ -10,9 +10,9 @@ public class Economy extends Car {
 	}
 
 	@Override
-	public int getRent() {
+	public int getRent(int days) {
 		
-		return this.rent;
+		return this.rent*days;
 	}
 	public String getDescription()
 	{

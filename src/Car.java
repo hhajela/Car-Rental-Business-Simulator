@@ -8,7 +8,7 @@ protected String name;
 	{
 		
 	}
-	public abstract int getRent();
+	public abstract int getRent(int Days);
 	public abstract String getDescription();
 	
 	public String getLicenseId()
