@@ -406,37 +406,37 @@ public class MyUnitTest
 		             
 		     ));
 		     
-		     ArrayList<Car> BasecarObjects= new ArrayList();
+		     ArrayList<Car> baseCarObjects= new ArrayList();
 		     ArrayList<Car> carObjects = new ArrayList();
 		     for(int i=0;i<5;i++)
 		     {
-		    	 BasecarObjects.add(crf.createCar(licenses.get(i), cars.get(i)));
-		    	 carObjects.add(BasecarObjects.get(i));
+		    	 baseCarObjects.add(crf.createCar(licenses.get(i), cars.get(i)));
+		    	 carObjects.add(baseCarObjects.get(i));
 		     }
 		     
 		     Car Localcar = carObjects.get(0);
-		     Localcar = new SatelliteRadio(Localcar,BasecarObjects.get(0));
+		     Localcar = new SatelliteRadio(Localcar,baseCarObjects.get(0));
 		     carObjects.set(0, Localcar);
 		     
 		     Localcar = carObjects.get(1);
-		     Localcar = new CarSeat(Localcar,BasecarObjects.get(1));
-		     Localcar = new CarSeat(Localcar,BasecarObjects.get(1));
-		     Localcar = new CarSeat(Localcar,BasecarObjects.get(1));
-		     Localcar = new Gps(Localcar,BasecarObjects.get(1));
+		     Localcar = new CarSeat(Localcar,baseCarObjects.get(1));
+		     Localcar = new CarSeat(Localcar,baseCarObjects.get(1));
+		     Localcar = new CarSeat(Localcar,baseCarObjects.get(1));
+		     Localcar = new Gps(Localcar,baseCarObjects.get(1));
 		     carObjects.set(1, Localcar);
 		     
 		     Localcar = carObjects.get(2);
-		     Localcar = new Gps(Localcar,BasecarObjects.get(2));
-		     Localcar = new SatelliteRadio(Localcar,BasecarObjects.get(2));
+		     Localcar = new Gps(Localcar,baseCarObjects.get(2));
+		     Localcar = new SatelliteRadio(Localcar,baseCarObjects.get(2));
 		     carObjects.set(2, Localcar);
 		     
 		     Localcar = carObjects.get(3);
-		     Localcar = new SatelliteRadio(Localcar,BasecarObjects.get(3));
-		     Localcar = new CarSeat(Localcar,BasecarObjects.get(3));
+		     Localcar = new SatelliteRadio(Localcar,baseCarObjects.get(3));
+		     Localcar = new CarSeat(Localcar,baseCarObjects.get(3));
 		     carObjects.set(3, Localcar);
 		     
 		     Localcar = carObjects.get(4);
-		     Localcar = new Gps(Localcar,BasecarObjects.get(4));
+		     Localcar = new Gps(Localcar,baseCarObjects.get(4));
 		     carObjects.set(4, Localcar);
 		     
 		     ArrayList<Integer> assertValues = new ArrayList(Arrays.asList(190,620,560,420,1320));
