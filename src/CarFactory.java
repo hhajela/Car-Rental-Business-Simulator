@@ -1,11 +1,25 @@
 
+/**
+ * CarFactory class which implements Simple Factory Design Pattern.
+ *
+ */
 public class CarFactory {
 
+	
+	/**
+	 * Constructor
+	 */
 	public CarFactory()
 	{
 		
 	}
 	
+	/**
+	 * Method which created car object of different type based on licenseID first character
+	 * @param licenseID - licenseId of
+	 * @param car - name of the car
+	 * @return - return car object
+	 */
 	public Car createCar(String licenseID,String car)
 	{
 		if(licenseID.charAt(0)=='S'&&licenseID.charAt(1)=='U')

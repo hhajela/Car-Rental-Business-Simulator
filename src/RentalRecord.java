@@ -1,5 +1,9 @@
 import java.util.ArrayList;
 
+/**
+ * Class to create Rental Record
+ *
+ */
 public class RentalRecord {
 
 	private ArrayList<Car> car;
@@ -9,6 +13,14 @@ public class RentalRecord {
 	private int numberOfDays;
 	private int totalRent;
 	
+	/**
+	 * Constructor to create RentalRecord Object
+	 * @param car - ArrayList of all the cars object to rent
+	 * @param customer - Customer who is renting the car
+	 * @param startDay - The date they are renting the car
+	 * @param numOfDays - Total duration of rental in days
+	 * @param totalRent - Total cost of the rental transaciton
+	 */
 	public RentalRecord(ArrayList<Car> car,Customer customer, int startDay,int numOfDays,int totalRent)
 	{
 		this.car = car;
@@ -19,23 +31,28 @@ public class RentalRecord {
 		this.totalRent = totalRent;
 	}
 	
+	// return the rental return day
 	public int getExpiryDay()
 	{
 		return expiryDay;
 	}
 	
+	//Mark the rental record as completed when customer has return the car
 	public void setCompleted(boolean isCompleted)
 	{
 		this.isCompleted = isCompleted;
 	}
-
+	
+	//Get the status of rental record completed or not
 	public boolean getCompleted()
 	{
 		return isCompleted;
 	}
 
+	//Return the list of cars rented
 	public ArrayList<Car> getCars() { return car; }
 	
+	//Override default toString function to present the record object in different format
 	public String toString()
 	{
 		String record;
