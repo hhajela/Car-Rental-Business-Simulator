@@ -3,6 +3,7 @@ import org.junit.Test;
 import java.io.IOException;
 import java.util.*;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class MyUnitTest
 {
@@ -85,6 +86,8 @@ public class MyUnitTest
             }
 
             assertEquals("Customer shouldn't be able to book if number of current cars booked >3",false,c.getCanRent());
+
+            Logger.getInstance().print("Test case customerCannotRentIfAlreadyMoreThanThreeCarsRentedTest passed");
         }
         catch (AssertionError e)
         {
@@ -140,6 +143,8 @@ public class MyUnitTest
             //other customer types should still be able to book
             assertEquals("Should be able to book if inventory has sufficient cars per type",true,casualCust.getCanRent());
             assertEquals("Should be able to book if inventory has sufficient cars per type", true, regularCust.getCanRent());
+
+            Logger.getInstance().print("Test case customerCannotRentIfInventoryHasInsufficientCarsTest passed");
         }
         catch (AssertionError e)
         {
@@ -219,7 +224,9 @@ public class MyUnitTest
 
                 }
                 assertEquals("gps between 0 and 1", count<=1, true);
+
             }
+            Logger.getInstance().print("Test case bookedCarDoesNotExceedOptionLimitsTest passed");
         }
         catch (AssertionError e)
         {
@@ -290,7 +297,9 @@ public class MyUnitTest
                 store.processBooking(regularCust,1);
                 numCarsBooked = regularCust.getRentalRecords().iterator().next().getCars().size();
                 assertEquals("Regular customer always books b/w 1 and 3 cars", numCarsBooked <= regularCust.getMaxCarsRentedPerRental() && numCarsBooked >= regularCust.minCarsRentedPerRental, true);
+
             }
+            Logger.getInstance().print("Test case carsBookedPerBookingWithinBoundsTest passed");
         }
         catch (AssertionError e)
         {
@@ -361,7 +370,9 @@ public class MyUnitTest
                 store.processBooking(regularCust,1);
                 rentalDuration = regularCust.getRentalRecords().iterator().next().getExpiryDay()-1;
                 assertEquals("Regular customer always books for b/w 3 and 5 days", rentalDuration<=5 && rentalDuration>=3, true);
+
             }
+            Logger.getInstance().print("Test Case bookingDurationWithinBoundsTest passed");
         }
         catch (AssertionError e)
         {
@@ -438,7 +449,7 @@ public class MyUnitTest
 		    	 
 		    	 
 		     }
-		     log.print("Test Case:checkTotalCostCalculated() Passed");
+		     log.print("Test case checkTotalCostCalculated passed");
 		     return;
 		     
 		}
@@ -491,7 +502,7 @@ public class MyUnitTest
 	        	String fail_message = "Test Case Failed:checkInventoryChangeForNewBooking() ";
 	        	assertEquals(fail_message,expectedInventory,store.getInventory().getNumCars());
 	        	
-	        	log.print("Test Case Passed:checkInventoryChangeForNewBooking()");
+	        	log.print("Test case checkInventoryChangeForNewBooking passed");
 		}
 		catch(AssertionError e)
 		{
@@ -524,7 +535,7 @@ public class MyUnitTest
 		     String expectedDescription  = "Toyota Camry CarSeat CarSeat CarSeat Gps";
 		     String fail_message = "TestCase Failed:checkDescriptionDecorator() ";
 		     assertEquals(fail_message, expectedDescription,carObjects.getDescription());
-		     log.print("TestCase Passed:checkDescriptionDecorator()");
+		     log.print("Test case checkDescriptionDecorator passed");
 		     
 		     
 		}
@@ -584,7 +595,7 @@ public class MyUnitTest
 	        	fail_message = "TestCase FAILED:checkReturnsWhenexpected()- Return did not process, Inventory";
 	        	assertEquals(fail_message, 5,store.getInventory().getNumCars());
 	        	
-	        	log.print("TestCase PASSED:checkDescriptionDecorator() ");
+	        	log.print("Test case checkDescriptionDecorator passed");
 	        	
 	        	
 		}
@@ -652,7 +663,7 @@ public class MyUnitTest
 	        	assertEquals(fail_message,1,store.getCompletedRentals().size());
 	        	
 	        	
-	        	log.print("TestCase checkActiveCompletedRentals() ");
+	        	log.print("Test case checkActiveCompletedRentals passed");
 	        	
 	        	
 		}
