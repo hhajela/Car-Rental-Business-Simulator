@@ -1,7 +1,7 @@
 
 public class CarSeat extends DecoratorOptions{
-	Car car; 
-	Car baseCar;
+	private Car car; 
+	private Car baseCar;
 	public CarSeat(Car car,Car baseCar )
 	{
 		super(baseCar.getLicenseId(),baseCar.getDescription());

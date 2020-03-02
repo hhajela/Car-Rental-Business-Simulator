@@ -368,5 +368,299 @@ public class MyUnitTest
             Logger.getInstance().print("Assertion failed " + e.getMessage());
         }
     }
+    @Test
+    public void checkTotalCostCalculated() throws IOException
+    {
+		Logger log = Logger.getInstance();
+		
+		try
+		{
+			
+			CarFactory crf = new CarFactory();
+			 ArrayList<String> cars = new ArrayList<String>(Arrays.asList(
+		             "Toyota Camry",
+		             "Jeep Wrangler",
+		             "Nissa NV200",
+		             "Honda Fit",
+		             "Lexus GS"
+		       
+		     ));
+		
+		     ArrayList<String> licenses = new ArrayList<String>(Arrays.asList(
+		             "STD132",
+		             "SUV194",
+		             "MIN334",
+		             "ECO365",
+		             "LUX331"
+		             
+		     ));
+		     
+		     ArrayList<Car> BasecarObjects= new ArrayList();
+		     ArrayList<Car> carObjects = new ArrayList();
+		     for(int i=0;i<5;i++)
+		     {
+		    	 BasecarObjects.add(crf.createCar(licenses.get(i), cars.get(i)));
+		    	 carObjects.add(BasecarObjects.get(i));
+		     }
+		     
+		     Car Localcar = carObjects.get(0);
+		     Localcar = new SatelliteRadio(Localcar,BasecarObjects.get(0));
+		     carObjects.set(0, Localcar);
+		     
+		     Localcar = carObjects.get(1);
+		     Localcar = new CarSeat(Localcar,BasecarObjects.get(1));
+		     Localcar = new CarSeat(Localcar,BasecarObjects.get(1));
+		     Localcar = new CarSeat(Localcar,BasecarObjects.get(1));
+		     Localcar = new Gps(Localcar,BasecarObjects.get(1));
+		     carObjects.set(1, Localcar);
+		     
+		     Localcar = carObjects.get(2);
+		     Localcar = new Gps(Localcar,BasecarObjects.get(2));
+		     Localcar = new SatelliteRadio(Localcar,BasecarObjects.get(2));
+		     carObjects.set(2, Localcar);
+		     
+		     Localcar = carObjects.get(3);
+		     Localcar = new SatelliteRadio(Localcar,BasecarObjects.get(3));
+		     Localcar = new CarSeat(Localcar,BasecarObjects.get(3));
+		     carObjects.set(3, Localcar);
+		     
+		     Localcar = carObjects.get(4);
+		     Localcar = new Gps(Localcar,BasecarObjects.get(4));
+		     carObjects.set(4, Localcar);
+		     
+		     ArrayList<Integer> assertValues = new ArrayList(Arrays.asList(190,620,560,420,1320));
+		     String fail_message;
+		     for(int i=0;i<5;i++)
+		     {
+		    	 fail_message = "Assertion Failed for checkTotalCostCalculated:Car "+cars.get(i); 
+		    	 assertEquals(fail_message,assertValues.get(i),Integer.valueOf(carObjects.get(i).getRent(i+1)));
+		    	 
+		    	 
+		    	 
+		     }
+		     log.print("Test Case:checkTotalCostCalculated() Passed");
+		     return;
+		     
+		}
+		catch(AssertionError e)
+		{
+			log.print(e.getMessage());
+		} 
+			
+	}
+	
+	@Test
+    public void checkInventoryChangeForNewBooking() throws IOException
+    {	
+		Logger log=Logger.getInstance();
+		try 
+		{
+			CarFactory crf = new CarFactory();
+			ArrayList<String> cars = new ArrayList<String>(Arrays.asList(
+		             "Toyota Camry",
+		             "Jeep Wrangler",
+		             "Nissa NV200",
+		             "Honda Fit",
+		             "Lexus GS"
+		       
+		     ));
+		
+		     ArrayList<String> licenses = new ArrayList<String>(Arrays.asList(
+		             "STD132",
+		             "SUV194",
+		             "MIN334",
+		             "ECO365",
+		             "LUX331"
+		             
+		     ));
+		    String customerName = "Brian";
+		    CustomerFactory cmf = new CustomerFactory();
+	        AbstractStore store = new Store();
+	        Simulation s = new Simulation(1,cmf,crf,store);
+	      
+	        	Customer customer = cmf.createCustomer(customerName,store.getInventory(),s);  
+	        	store.addCustomer(customer);
+			
+		
+	        	for(int i=0;i<cars.size();i++)
+	        		store.getInventory().addCar(crf.createCar(licenses.get(i),cars.get(i)));
+	        		
+	        	store.processBooking(customer,1);
+	        	int expectedInventory =5- customer.getCarsRented();
+	        	
+	        	String fail_message = "Test Case Failed:checkInventoryChangeForNewBooking() ";
+	        	assertEquals(fail_message,expectedInventory,store.getInventory().getNumCars());
+	        	
+	        	log.print("Test Case Passed:checkInventoryChangeForNewBooking()");
+		}
+		catch(AssertionError e)
+		{
+			log.print(e.getMessage());
+		}
+	        			
+    }
+	
+	@Test
+    public void checkDescriptionDecorator() throws IOException
+    {
+		Logger log = Logger.getInstance();
+		
+		try
+		{
+			
+			CarFactory crf = new CarFactory();
+			 
+		     String car="Toyota Camry";
+		
+		     String license="STD132";
+		     
+		     Car baseCarObjects= crf.createCar(license, car);
+		     Car carObjects = baseCarObjects;
+		     
+		     carObjects = new CarSeat(carObjects, baseCarObjects);
+		     carObjects = new CarSeat(carObjects, baseCarObjects);
+		     carObjects = new CarSeat(carObjects, baseCarObjects);
+		     carObjects = new Gps(carObjects, baseCarObjects);
+		     String expectedDescription  = "Toyota Camry CarSeat CarSeat CarSeat Gps";
+		     String fail_message = "TestCase Failed:checkDescriptionDecorator() ";
+		     assertEquals(fail_message, expectedDescription,carObjects.getDescription());
+		     log.print("TestCase Passed:checkDescriptionDecorator()");
+		     
+		     
+		}
+		catch(AssertionError e)
+		{
+			log.print(e.getMessage());
+		}
+	
+	
+   }
+	@Test
+	public void checkReturnsWhenexpected() throws IOException
+	{
+		Logger log=Logger.getInstance();
+		try 
+		{
+			CarFactory crf = new CarFactory();
+			ArrayList<String> cars = new ArrayList<String>(Arrays.asList(
+		             "Toyota Camry",
+		             "Jeep Wrangler",
+		             "Nissa NV200",
+		             "Honda Fit",
+		             "Lexus GS"
+		       
+		     ));
+		
+		     ArrayList<String> licenses = new ArrayList<String>(Arrays.asList(
+		             "STD132",
+		             "SUV194",
+		             "MIN334",
+		             "ECO365",
+		             "LUX331"
+		             
+		     ));
+		    String customerName = "Brian";
+		    CustomerFactory cmf = new CustomerFactory();
+	        AbstractStore store = new Store();
+	        Simulation s = new Simulation(1,cmf,crf,store);
+	      
+	        	Customer customer = cmf.createCustomer(customerName,store.getInventory(),s);  
+	        	store.addCustomer(customer);
+			
+		
+	        	for(int i=0;i<cars.size();i++)
+	        		store.getInventory().addCar(crf.createCar(licenses.get(i),cars.get(i)));
+	        		
+	        	store.processBooking(customer,1);
+	        	int returnDay = customer.getRentalRecords().iterator().next().getExpiryDay();
+	        	
+	        	for(int i=1;i<returnDay;i++)
+	        		s.changeDay();
+	        	
+	        	String fail_message = "TestCase FAILED:checkReturnsWhenexpected()- Customer should return";
+	        	assertTrue(fail_message,customer.getCanReturn());
+	        	
+	        	store.processReturn(customer);
+	        	fail_message = "TestCase FAILED:checkReturnsWhenexpected()- Return did not process, Inventory";
+	        	assertEquals(fail_message, 5,store.getInventory().getNumCars());
+	        	
+	        	log.print("TestCase PASSED:checkDescriptionDecorator() ");
+	        	
+	        	
+		}
+		catch(AssertionError e)
+		{
+			log.print(e.getMessage());
+		}
+	}
+	
+	@Test
+	public void checkActiveCompletedRentals() throws IOException
+	{
+		Logger log=Logger.getInstance();
+		try 
+		{
+			CarFactory crf = new CarFactory();
+			ArrayList<String> cars = new ArrayList<String>(Arrays.asList(
+		             "Toyota Camry",
+		             "Jeep Wrangler",
+		             "Nissa NV200",
+		             "Honda Fit",
+		             "Lexus GS"
+		       
+		     ));
+		
+		     ArrayList<String> licenses = new ArrayList<String>(Arrays.asList(
+		             "STD132",
+		             "SUV194",
+		             "MIN334",
+		             "ECO365",
+		             "LUX331"
+		             
+		     ));
+		    String customerName = "Brian";
+		    CustomerFactory cmf = new CustomerFactory();
+	        AbstractStore store = new Store();
+	        Simulation s = new Simulation(1,cmf,crf,store);
+	      
+	        	Customer customer = cmf.createCustomer(customerName,store.getInventory(),s);  
+	        	store.addCustomer(customer);
+			
+		
+	        	for(int i=0;i<cars.size();i++)
+	        		store.getInventory().addCar(crf.createCar(licenses.get(i),cars.get(i)));
+	        		
+	        	store.processBooking(customer,1);
+	        	
+	        	
+	        	String fail_message = "TestCase checkActiveCompletedRentals()- ActiveRentals not updated after booking";
+	        	assertEquals(fail_message,1,store.getActiveRentals().size());
+	        	
+	        	
+	        	int returnDay = customer.getRentalRecords().iterator().next().getExpiryDay();
+	        	
+	        	for(int i=1;i<returnDay;i++)
+	        		s.changeDay();
+	        	
+	        	
+	        	store.processReturn(customer);
+	        	
+	        	fail_message = "TestCase checkActiveCompletedRentals()- ActiveRentals not updated after return";
+	        	assertEquals(fail_message,0,store.getActiveRentals().size());
+	        	
+	        	fail_message = "TestCase checkActiveCompletedRentals()- CompletedRentals not updated";
+	        	assertEquals(fail_message,1,store.getCompletedRentals().size());
+	        	
+	        	
+	        	log.print("TestCase checkActiveCompletedRentals() ");
+	        	
+	        	
+		}
+		catch(AssertionError e)
+		{
+			log.print(e.getMessage());
+		}
+	}
+
 
 }
