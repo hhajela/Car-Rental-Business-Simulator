@@ -75,7 +75,7 @@ public class RentalRecord {
 			{
 				record+=this.car.get(i).getDescription()+" License ID "+this.car.get(i).getLicenseId()+", ";
 			} 
-			record+=this.car.get(i).getDescription()+' '+this.car.get(i).getLicenseId();
+			record+=this.car.get(i).getDescription()+" License ID "+this.car.get(i).getLicenseId();
 		}
 		return record;
 	}
