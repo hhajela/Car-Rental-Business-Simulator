@@ -5,10 +5,9 @@ public class Simulation implements Subject{
 
 	private int day;
 	private AbstractStore store;
-	CustomerFactory cmFactory;
-	CarFactory crFactory;
+	private CustomerFactory cmFactory;
+	private CarFactory crFactory;
 	private ArrayList<Customer> customers;
-	private ArrayList<Car> car;
 	private Logger log ;
 	
 	public Simulation(int day,CustomerFactory cmf, CarFactory crf, AbstractStore store)
@@ -38,18 +37,20 @@ public class Simulation implements Subject{
 	public void changeDay()
 	{
 		this.day++;
+		notifyObservers();
 	}
 	
 	public int getDay()
 	{
 		return this.day;
+		
 	}
 	
 	public void runSimulation()
 	{
 		while(this.day<=35)
 		{
-			notifyObservers();
+			
 			store.setDailyEarnings(0);
 			checkReturns();
 			

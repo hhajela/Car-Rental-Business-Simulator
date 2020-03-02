@@ -1,4 +1,3 @@
-import java.lang.*;
 import java.util.*;
 
 public abstract class Customer implements MyObserver
@@ -25,7 +24,6 @@ public abstract class Customer implements MyObserver
         inventory.registerObserver(this);
         name = customerName;
         canReturn = false;
-        canRent = true;
     }
 
     //getters and setters
