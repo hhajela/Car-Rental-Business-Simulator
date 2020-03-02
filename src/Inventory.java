@@ -11,12 +11,14 @@ public class Inventory implements  Subject
 
     public void addCar(Car car)
     {
+        //observer pattern, notify observer when inventory count changes
         cars.add(car);
         notifyObservers();
     }
 
     public void removeCar(Car car)
     {
+        //observer pattern, notify observer when inventory count changes
         cars.remove(car);
         notifyObservers();
     }

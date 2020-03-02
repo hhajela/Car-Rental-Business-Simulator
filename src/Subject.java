@@ -1,5 +1,6 @@
 import java.util.*;
 
+//Subject interface definition for implementing observer pattern
 public interface Subject
 {
     ArrayList<MyObserver> observers = new ArrayList<MyObserver>();

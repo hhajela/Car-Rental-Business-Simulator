@@ -4,6 +4,7 @@ public class CasualCustomer extends Customer
     {
         super(name, inventory, simulation);
 
+        //init with specifics for casual customer
         type = "Casual";
 
         minCarsRentedPerRental = 1;

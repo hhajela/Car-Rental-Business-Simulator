@@ -8,12 +8,15 @@ abstract public class AbstractStore
     protected ArrayList<Customer> customers;
     protected HashSet<RentalRecord> completedRentals;
     protected HashSet<RentalRecord> activeRentals;
+
+    //keep track of total number of rentals by type
     protected int casualRentals;
     protected int regularRentals;
     protected int businessRentals;
 
     public AbstractStore()
     {
+        //keep track of completed and active rentals separately
         completedRentals = new HashSet<RentalRecord>();
         activeRentals = new HashSet<RentalRecord>();
         customers = new ArrayList<Customer>();

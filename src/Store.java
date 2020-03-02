@@ -119,6 +119,7 @@ public class Store extends AbstractStore
 
     public Customer getCustomerEligibleToRent(int customerIndex)
     {
+        //return customer object if able to rent else null
         Customer cust = customers.get(Integer.valueOf(customerIndex));
         if (cust.getCanRent())
             return cust;

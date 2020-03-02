@@ -2,6 +2,7 @@ import java.io.IOException;
 import java.util.*;
 import java.io.FileWriter;
 
+//implementation of Singleton pattern
 public class Logger
 {
     private static String logfile = "output.txt";
@@ -18,6 +19,7 @@ public class Logger
 
     public void print(ArrayList<?> values) throws IOException
     {
+        //utilize toString and print each element in new line
         for (Object o : values) {
             print(o.toString());
         }

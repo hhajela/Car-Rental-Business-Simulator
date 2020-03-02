@@ -20,9 +20,13 @@ public abstract class Customer implements MyObserver
         this.simulation = simulation;
         this.inventory = inventory;
         rentalRecords = new HashSet<RentalRecord>();
+
+        //observer pattern, register this observer with its subjects
         simulation.registerObserver(this);
         inventory.registerObserver(this);
         name = customerName;
+
+        //initially cannot return but can rent
         canReturn = false;
         canRent = true;
     }
