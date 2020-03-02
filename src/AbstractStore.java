@@ -45,4 +45,10 @@ abstract public class AbstractStore
 
     public abstract Customer getCustomerEligibleToRent(int customerIndex);
 
+    public int getCasualRentals() { return casualRentals; }
+
+    public int getRegularRentals() { return regularRentals; }
+
+    public int getBusinessRentals() { return businessRentals; }
+
 }
