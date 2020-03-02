@@ -219,26 +219,6 @@ public class MyUnitTest
 
                 }
                 assertEquals("gps between 0 and 1", count<=1, true);
-
-                /*
-                int numCarSeats = 0;
-                int numRadio = 0;
-                int numGps = 0;
-                String className = bookedCar.getClass().getName();
-                while(className.equals("Gps") || className.equals("SatelliteRadio") || className.equals("CarSeat"))
-                {
-                    if (className.equals("Gps")) {
-                        numGps++;
-                    }
-                    else if (className.equals()) {
-                        numRadio++;
-                    }
-                    else {
-                        numCarSeats++;
-                    }
-
-                    bookedCar = bookedCar.get
-                }*/
             }
         }
         catch (AssertionError e)
