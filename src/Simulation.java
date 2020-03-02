@@ -126,8 +126,9 @@ public class Simulation implements Subject{
 			this.log.print(this.store.getActiveRentals());
 			this.log.print("\nTotal Cars in Inventory : "+this.store.getInventory().getNumCars() + "\n");
 			this.log.print(this.store.getInventory().getCars());
-			this.log.print("\nToday's Earnings : "+this.store.getDailyEarnings());
+			this.log.print("\nToday's Earnings : $"+this.store.getDailyEarnings()+"\n\n");
 			this.log.print("--------------------------------------------------------------------------------------------");
+			
 		}
 		catch (IOException e)
 		{
@@ -140,12 +141,13 @@ public class Simulation implements Subject{
 	{
 		try
 		{
-			this.log.print("Final Stats\n");
+			this.log.print("\n\nFinal Stats\n");
 			this.log.print("Total Completed Rentals : "+this.store.getCompletedRentals().size() + "\n");
 			this.log.print("Total Completed Rentals by Business Customers : "+this.store.getBusinessRentals() + "\n");
 			this.log.print("Total Completed Rentals by Casual Customers : "+this.store.getCasualRentals() + "\n");
 			this.log.print("Total Completed Rentals by Regular Customers : "+this.store.getRegularRentals() + "\n");
-			this.log.print("Total Earnings : "+this.store.getTotalEarnings()+'\n');
+			this.log.print("Total Earnings : $"+this.store.getTotalEarnings()+'\n');
+			this.log.print("--------------------------------------------------------------------------------------------\n");
 		}
 		catch (IOException e)
 		{
